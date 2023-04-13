@@ -1,0 +1,205 @@
+#root {
+  max-width: 8280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.App {
+  text-align: center;
+}
+.form-control{
+  border-radius: 1.2pc;
+  width: auto;
+}
+.accordion-item{
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.user-accordion {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  margin: auto;
+}
+
+.label{
+  color: rgb(8, 8, 8);
+  font-weight: bold;
+}
+.accordion-item {
+  background-color: #e3e7e7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-item.active {
+  background-color: #fff;
+}
+
+.accordion-title {
+  font-weight: bold;
+  text-align: left;
+}
+.buttontag{
+  float: right;
+}
+.accordion-content {
+  margin-top: 10px;
+}
+
+.imgtag{
+  text-align: left;
+}
+.accordion-content{
+  text-align: justify;
+}
+.buttonmiddle{
+  margin-right: 500px;
+  background-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+.listbody{
+  background-color: white;
+  height: 600px;
+  border-radius: 1.5pc;
+}
+.form-control:hover {
+  border: #61dafb;
+  color: #282c34;
+}
+body {
+  /* background: #ffd89b;
+  background: -webkit-linear-gradient(to right, #ffd89b, #19547b);
+  background: linear-gradient(to right, #ffd89b, #19547b);
+  min-height: 100vh; */
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.grid-container1 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr); /*  rows */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 0.5rem; /* gap between grid items */
+  border: 1px transparent;
+  padding: 10px;
+}
+.grid-container2 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr); /*  rows */
+  grid-template-columns: repeat(1, 1fr); /* 3 columns */
+  gap: 0.5rem; /* gap between grid items */
+  border: 1px transparent;
+  padding: 10px;
+}
+.grid-container3{
+  float: right;
+}
+.modalbodyclass{
+  width: 500px;
+  height: 100px;
+}
+.inputtag{
+  width: 150px;
+  height: 30px;
+  border-radius: 0.5pc;
+  border: 0.5px solid;
+  border-color: #aaa; 
+}
+.descriptionfield{
+  width: 560px;
+  height: 100px;
+  border-radius: 0.5pc;
+  border: 0.5px solid;
+  border-color: #aaa;
+}
+.main-search__text-box-wrapper{
+  width: 700px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 1.5pc;
+  margin: auto;
+}
+.searchbar{
+  border: transparent;
+  float: left;
+  padding-top: 7px;
+  padding-left: 15px;
+  width: 630px;
+  outline: none;
+}
+.main-search__magnifying-glass{
+  float: left;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.cancelbtn{
+  margin-left: 300px;
+  border-radius: 0.5pc;
+  height: 35px;
+  width: 80px;
+  border: 0.5px solid;
+}
+.deletebtn{
+  background-color: rgb(231, 42, 42);
+  border-radius: 0.5pc;
+  color: white;
+  height: 35px;
+  width: 80px;
+  border: 0.5px solid;
+}
+.crossbtn{
+  margin-left: 200px;
+}
+.collapseicons{
+  margin-top: 20px;
+}
+.userpicture{
+  border-radius: 50%;
+}
