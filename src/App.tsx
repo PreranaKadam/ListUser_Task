@@ -20,7 +20,8 @@ function App() {
   const UsersData = useSelector((state: any) => state?.homeslice?.data);
   const isEditvalue = useSelector((state: any) => state?.homeslice?.isEditing);
   const SelectedUser = useSelector((state: any) => state.homeslice.selectedUser);
-  
+  const selectedUserID = UsersData?.find((user: any) => user.id === SelectedUser);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
     dispatch(fetchDataSuccess(users));
   }, []);
 
-  //For Handling delete activities - Start
+  //For Handling delete activities
   const handleShowModal = () => {
     setShowModal(true);
   };
@@ -88,15 +89,15 @@ function App() {
                 key={user.id}
                 className='accordion-item'
               >
-                <div className="accordion-title"><img src={user.picture} className='userpicture'/>&nbsp;&nbsp;&nbsp;&nbsp;{user.first}&nbsp;{user.last}
+                <div className="accordion-title"><img src={user.picture} className='userpicture' />&nbsp;&nbsp;&nbsp;&nbsp;{user.first}&nbsp;{user.last}
                   <span onClick={() => handleClick(user.id)} className={`buttontag ${activeIndex === user.id ? "active" : ""
-                    }`}>{activeIndex === user.id ? <img src={closed} className='collapseicons'/> :<img src={open} className='collapseicons'/>}
+                    }`}>{activeIndex === user.id ? <img src={closed} className='collapseicons' /> : <img src={open} className='collapseicons' />}
                   </span>
                 </div>
                 {activeIndex === user.id && (
                   <div className="accordion-content">
                     <div className="grid-container1">
-                      <p><span className='label'>Age</span> <br />{calculateAge(user.dob)} years </p>
+                      <p><span className='label'>Age</span> <br />{selectedUserID.age !== '' && selectedUserID.age === undefined ? calculateAge(user.dob) + " years" : (selectedUserID.age) + " years"}  </p>
                       <p><span className='label'>Gender</span> <br />{user.gender}</p>
                       <p><span className='label'>Country</span>  <br />{user.country}</p>
                     </div>

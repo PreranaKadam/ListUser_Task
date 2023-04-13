@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AppThunk } from './store/store';
 
 const HomeSlice = createSlice({
     name: 'homeslice',
@@ -7,6 +6,7 @@ const HomeSlice = createSlice({
         data: null,
         selectedUser: 0,
         isEditing: false,
+        age: 0,
     },
     reducers: {
         fetchDataSuccess(state, action) {
@@ -25,7 +25,10 @@ const HomeSlice = createSlice({
                     user.first = action.payload;
                 }
             })
-        }
+        },
+        UpdateAge(state, action) {
+            state.age = action.payload;
+        },
     },
 });
 
@@ -35,5 +38,6 @@ export const {
     UpdateSelectedUser,
     isEditing,
     UpdateFirstName,
+    UpdateAge,
 } = HomeSlice.actions;
 

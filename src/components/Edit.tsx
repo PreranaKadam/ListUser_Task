@@ -3,7 +3,7 @@ import { blockInvalidChar, calculateAge } from "./commonfunction";
 import save from "../images/save.svg";
 import cancel from "../images/cancel.svg";
 import { useState } from "react";
-import { UpdateFirstName, fetchDataSuccess, isEditing } from "../HomeSlice";
+import { UpdateAge, UpdateFirstName, fetchDataSuccess, isEditing } from "../HomeSlice";
 
 const Edit = () => {
     const UsersData = useSelector((state: any) => state?.homeslice?.data);
@@ -21,29 +21,37 @@ const Edit = () => {
     const [last, setLastName] = useState(selectedUserID.last);
     const [gender, setGender] = useState(selectedUserID.gender);
     const [country, setCountry] = useState(selectedUserID.country);
+    const [description, setDescription] = useState(selectedUserID.description);
+    const [haschanged, sethasChanged] = useState(false);
 
     const handleAgeChange = (event: any) => {
         setAge(event.target.value);
+        sethasChanged(true);
     };
-    // const handlefirstNameChange = (event:any) => {
-    //     setFirstName(event.target.value);
-    // };
+    dispatch(UpdateAge(age));
     const handleNameChange = (event: any) => {
         const words = event.target.value.split(' ');
         const firstName = words[0];
         setFirstName(firstName);
         const lastName = words[words.length - 1];
         setLastName(lastName);
+        sethasChanged(true);
     };
     const handleGenderChange = (event: any) => {
         setGender(event.target.value);
+        sethasChanged(true);
     };
     const handleCountryChange = (event: any) => {
         setCountry(event.target.value);
+        sethasChanged(true);
+    };
+    const handleDespChange = (event: any) => {
+        setDescription(event.target.value);
+        sethasChanged(true);
     };
 
     const handleSaveClick = () => {
-        const updatedUser = { ...selectedUserID, age, first, last, gender, country };
+        const updatedUser = { ...selectedUserID, age, first, last, gender, country, description };
         const updatedUsers = UsersData.map((user: any) => {
             if (user.id === selectedUserID.id) {
                 return updatedUser;
@@ -88,11 +96,11 @@ const Edit = () => {
                                     </div>
                                     <div className="grid-container2">
                                         <p><span className='label'>Description</span><br />
-                                            <textarea className='descriptionfield' placeholder={user.description} required /></p>
+                                            <textarea className='descriptionfield' placeholder={user.description} onChange={handleDespChange} required /></p>
                                     </div>
                                     <div className='grid-container3'>
                                         <img src={cancel} style={{ height: '45px' }} alt='cancel' onClick={handleCloseModal} />
-                                        <img src={save} alt='save' onClick={handleSaveClick} />
+                                        {haschanged ? <img src={save} alt='save' onClick={handleSaveClick} />:<img src={save} style={{filter:'grayscale(100%)', opacity: '0.5', cursor: 'not-allowed'}}/>}
                                     </div>
                                 </div>
                             )}
